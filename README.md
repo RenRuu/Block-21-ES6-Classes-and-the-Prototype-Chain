@@ -90,4 +90,62 @@ Object Prototype Chain;
             access properties on an object literal or classes [[Prototype]]
             invoke a superclass's constructor
 
-    
+   KeyWords
+        - this
+            declares constructor's defining information
+        - new
+            creates a new object
+        - class
+            provide a more familiar and easier to use syntax for defining and working with objects and their prototypes.
+
+        - extends
+            Gives the ability to grant another object the same properties of an existing 
+
+            Ex)
+                 // create the class "persons"
+                    class Person {
+                        constructor(name, age, gender) {
+                            this.name = name;
+                            this.age = age; 
+                            this.gender = gender;
+                        }
+                // create the template the information would process through 
+                        getPersonInfo() {
+                            console.log(`Name: ${this.name}, Age: ${this.age}, Gender: ${this.gender}`);
+                        }
+                    }
+
+                // new object created
+                    const person = new Person("Rin", 27,"Female");
+
+                // call the function
+                    person.getPersonInfo();
+
+                // returns > 'Name: Rin, Age: 2, Gender: Female'
+
+                // gives "student" access to the same properties as "Person"
+                    class Student extends Person {
+                        constructor(name, age, gender, school) {    // also takes on additional elements student has 
+                            super(name, age, gender) // inheritance 
+                            this.school = school;
+
+                        }
+
+                //owns scope outside of the constructors scope
+                        getStudentInfo() {
+                            console.log("School: ", this.school)
+                        }
+                    }
+
+                    const student = new Student("Rin", 27, "Female", "Fullstack Academy");
+
+                    student.getPersonInfo();
+                    student.getStudentInfo();
+
+                 // returns > 'Name: Rin, Age: 27, Gender: Female' + 'School: ' 'Fullstack Academy'
+
+                 
+        - constructor 
+        - super
+
+*Child only inherences from the parent, not the other way around*
